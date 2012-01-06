@@ -1,0 +1,7 @@
+category: Games
+requires: libboost1.48 libgcc1 libGL1 libiconv2 libpng14 libSDL1.2_0 libSDL_image1.2_0 libSDL_mixer1.2_0 libstdc++6
+sdesc: "Guide a group of penguins to safety"
+ldesc: "Pingus is a puzzle game where the player has to guide a group of 
+penguins through a series of levels to the exit. Along the path are 
+numerous dangers and obstacles that the player has to overcome by 
+assigning different tasks to each penguin."

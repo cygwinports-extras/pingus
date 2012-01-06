@@ -1,0 +1,29 @@
+
+HOMEPAGE="http://pingus.seul.org/"
+SRC_URI="http://pingus.googlecode.com/files/${P}.tar.bz2"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygmake
+}
+
+src_install() {
+	cd ${B}
+	newbin build/pingus.exe pingus.bin.exe
+	echo -e "#!/bin/sh\nexec /usr/bin/pingus.bin --datadir /usr/share/pingus \$@" > ${D}/usr/bin/pingus
+	chmod 755 ${D}/usr/bin/pingus
+
+	cd ${S}
+	cygmake install-data PREFIX=/usr DESTDIR=${D}
+	doman doc/man/pingus.6
+
+	insinto /usr/share/icons/hicolor/32x32/apps
+	doins data/images/icons/pingus.png
+	insinto /usr/share/icons/hicolor/48x48/apps
+	newins data/images/icons/pingus-icon.png pingus.png
+	insinto /usr/share/icons/hicolor/scalable/apps
+	doins data/images/icons/pingus.svg
+
+	make_desktop_entry pingus "Pingus" pingus "Game;LogicGame"
+}
