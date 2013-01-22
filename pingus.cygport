@@ -1,6 +1,6 @@
 NAME="pingus"
 VERSION=0.7.6
-RELEASE=2
+RELEASE=3
 CATEGORY="Games"
 SUMMARY="Guide a group of penguins to safety"
 DESCRIPTION="Pingus is a puzzle game where the player has to guide a group of
