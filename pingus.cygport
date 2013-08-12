@@ -9,6 +9,7 @@ dangers and obstacles that the player has to overcome by assigning different
 tasks to each penguin."
 HOMEPAGE="http://pingus.seul.org/"
 SRC_URI="http://pingus.googlecode.com/files/${P}.tar.bz2"
+PATCH_URI="0.7.6-ansi.patch"
 
 src_compile() {
 	lndirs
@@ -24,6 +25,7 @@ src_install() {
 
 	cd ${S}
 	cygmake install-data PREFIX=/usr DESTDIR=${D}
+	find ${D}/usr/share -type f -exec chmod -x '{}' +
 	doman doc/man/pingus.6
 
 	insinto /usr/share/icons/hicolor/32x32/apps

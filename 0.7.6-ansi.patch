@@ -1,0 +1,13 @@
+snprintf is guarded (only) by !__STRICT_ANSI__ 
+
+--- origsrc/pingus-0.7.6/SConscript	2011-12-24 15:46:47.000000000 -0600
++++ src/pingus-0.7.6/SConscript	2013-08-12 00:44:45.492223000 -0500
+@@ -108,7 +108,7 @@ class Project:
+         self.opts.Add('optional_sources', 'Additional source files', [])
+ 
+         self.env = Environment(options = self.opts, ENV=os.environ)
+-        self.env.Append(CXXFLAGS = ["-std=c++0x"])
++        self.env.Append(CXXFLAGS = ["-std=gnu++0x"])
+         self.env.Append(CPPDEFINES = [('VERSION', '"\\"%s\\""' % package_version)])
+         self.env.Append(CPPPATH = ['src/'])
+         
