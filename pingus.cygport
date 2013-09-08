@@ -1,6 +1,6 @@
 NAME="pingus"
 VERSION=0.7.6
-RELEASE=3
+RELEASE=4
 CATEGORY="Games"
 SUMMARY="Guide a group of penguins to safety"
 DESCRIPTION="Pingus is a puzzle game where the player has to guide a group of
@@ -8,8 +8,11 @@ penguins through a series of levels to the exit. Along the path are numerous
 dangers and obstacles that the player has to overcome by assigning different
 tasks to each penguin."
 HOMEPAGE="http://pingus.seul.org/"
-SRC_URI="http://pingus.googlecode.com/files/${P}.tar.bz2"
-PATCH_URI="0.7.6-ansi.patch"
+SRC_URI="http://pingus.googlecode.com/files/pingus-${VERSION}.tar.bz2"
+PATCH_URI="
+	0.7.6-ansi.patch
+	0.7.6-c++11.patch
+"
 
 src_compile() {
 	lndirs
