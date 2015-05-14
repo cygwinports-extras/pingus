@@ -1,6 +1,6 @@
 NAME="pingus"
 VERSION=0.7.6
-RELEASE=6
+RELEASE=7
 CATEGORY="Games"
 SUMMARY="Guide a group of penguins to safety"
 DESCRIPTION="Pingus is a puzzle game where the player has to guide a group of
@@ -10,14 +10,14 @@ tasks to each penguin."
 HOMEPAGE="http://pingus.seul.org/"
 SRC_URI="http://pingus.googlecode.com/files/pingus-${VERSION}.tar.bz2"
 PATCH_URI="
+	http://pkgs.fedoraproject.org/cgit/pingus.git/plain/pingus-0.7.6-gcc470-udl.patch
 	0.7.6-ansi.patch
-	0.7.6-c++11.patch
 "
 
 src_compile() {
 	lndirs
 	cd ${B}
-	cygmake
+	scons CCFLAGS="${CXXFLAGS}"
 }
 
 src_install() {
